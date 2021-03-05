@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListechambresController!{% endblock %}
+
+{% block body %}
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<h1>{{service_name[0]['name']}}</h1>
+<div id="services">
+    
+    {% for chambre in chambres %}
+    <div class="card border-dark mb-3 item" style="max-width: 18rem;">
+    <div class="card-header">Chambre {{loop.index}}</div>
+    <div class="card-body text-dark">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'baseConnection.html.twig' %}
+
+{% block title %}Hello DemanderdvController!{% endblock %}
+
+{% block body %}
+<a href="accueilconnexcion"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+<h1>Prendre un rendez-vous</h1>
+<form action="demanderdv" method="POST">
+<div id="tb-medecin">
+
+<label for="date">Date du rendez-vous:</label><br>
+  <input type="date" id="date" name="date" required><br>
+
+<label for="heure">Heure du rendez-vous:</label><br>
+<input type="time" id="heure" name="heure"  min="06:00" max="18:00" required><br>
+
+<label for="medecin-select">Medecin:</label>
+
+<select name="medecin" id="medecin-select">
+    {% for medecin in medecins %}
+    <option value="{{medecin['nom']}}">{{medecin['nom']}} - {{medecin['prenom']}}</option>
+    {% endfor %}
+</select>
+
+  <input type="submit" value="Prendre rendez-vous">
+
+
+</div>
+<div id="alert">{{alert}}</div>
+</form>
+
+
+{% endblock %}

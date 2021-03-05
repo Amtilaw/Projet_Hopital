@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+<a href="services"><img src="img/arrow-left-square.svg" style="position:absolute;left:30px;margin-top:60px"></a>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<h1>{{service_name[0]['name']}} - chambre n°{{numChambre}}</h1>
+<div class="lits">
+<script>
+let sex;
+</script>
+    {% for i in 0..4 %}
+    
+    <div id="lit{{loop.index}}">
+        <h2>Lit n°{{loop.index}}</h2>
+        
+        <p>
+           {% if patient[i] is defined %}
+           <script>
+             sex = {{ patient[i]['sex'] }};
+            if (sex == 1) sex = "homme";
+            else sex = "femme";
+
+            </script>
+            {{patient[i]['nom']}} {{patient[i]['prenom']}}
+            <br>
+            {{patient[i]['gsm']}}
+            <br>
+            <script> document.write(sex); </script>
+            <br>
+            date de naissance : {{patient[i]['naissance']}}
+            <br>
+            <a href="supprimer?patient={{patient[i]['id_patient']}}&numChambre={{numChambre}}&numService={{service_name[0]['id']}}"><button class="btn btn-danger">Supprimer</button></a>
+           {% else %}
+            <a href="ajoutpatient?numChambre={{numChambre}}&numService={{service_name[0]['id']}}"><button class="btn btn-success">ajouter</button></a>
+            {% endif %}
+        </p>
+        
+    </div>
+
+    {% endfor %}
+    
+
+</div>
+
+{% endblock %}

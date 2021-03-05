@@ -1,0 +1,27 @@
+{% extends 'baseConnection.html.twig' %}
+
+{% block title %}Hello ConsultationrdvController!{% endblock %}
+
+{% block body %}
+<a href="accueilconnexcion"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+<h1>Consultation de rendez-vous</h1>
+ <table style="width:100%; margin-top:100px">
+  <tr>
+    <th>Numéro de rendez-vous</th>
+    <th>Medecin</th>
+    <th>Date et heures</th>
+    <th>Status</th>
+    <th>Annulé</th>
+  </tr>
+  {% for rendez_vous in rendez %}
+  <tr>
+    <td>{{loop.index}}</td>
+    <td>{{rendez_vous['nom']}} {{rendez_vous['prenom']}}</td>
+    <td>{{rendez_vous['date_rdv']}}</td>
+    <td>{{rendez_vous['status']}}</td>
+    <td><a href="annule?medecin={{rendez_vous['medecin_id']}}&date={{rendez_vous['date_rdv']}}"><button class="btn btn-danger"></button></a></td>
+  </tr>
+  {% endfor %}
+</table> 
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConnexionsecretaireController!{% endblock %}
+
+{% block body %}
+<link href="css/stylePart.css" rel="stylesheet" type="text/css">
+
+<a href="/"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+
+
+<div class="connection">
+
+<div class="board-connection">
+
+<h2>Connection personel</h2>
+
+<form method="post" style="margin:60px" action="connexionsecretaire">
+
+
+  <label for="email">pseudo</label><br>
+  <input type="text" id="pseudo" name="pseudo" required><br>
+
+  <label for="passwd">Mot de pass:</label><br>
+  <input type="password" id="passwd" name="passwd" required><br>
+
+  <div id="alert"></div>
+
+
+  <input type="submit" value="Enregistre">
+  
+</form>
+</div>
+
+</div>
+{% endblock %}

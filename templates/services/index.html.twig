@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServicesController!{% endblock %}
+
+{% block body %}
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<a href="accueilconnexcionadm"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+<h1>Services</h1>
+<div id="services">
+    
+    {% for service in services %}
+    <div class="card border-dark mb-3 item" style="max-width: 18rem;">
+    <div class="card-header">{{service['name']}}</div>
+    <div class="card-body text-dark">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">
+        {% set indexChambre = 0 %}
+         {% for chambre in chambres %}
+            {% if chambre['id_service'] == service['id'] %}
+            {% set indexChambre = indexChambre +1 %}
+            <a href="chambre?numService={{service['id']}}&numChambre={{chambre['id']}}"><button type="button" class="btn btn-light">Chambre : {{indexChambre}}</button></a>
+            {% endif %}
+         {% endfor %}
+        
+        </p>
+    </div>
+    
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

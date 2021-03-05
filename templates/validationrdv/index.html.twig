@@ -1,0 +1,37 @@
+{% extends 'baseConnection.html.twig' %}
+
+{% block title %}Hello ValidationrdvController!{% endblock %}
+
+{% block body %}
+<link href="css/stylePart.css" rel="stylesheet" type="text/css">
+
+<a href="accueilconnexcionadm"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+
+<h1>Validation de rendez-vous</h1>
+ <table style="width:100%; margin-top:100px">
+  <tr>
+    <th>Numéro de rendez-vous</th>
+    <th>Medecin</th>
+    <th>Patient</th>
+    <th>Date et heures</th>
+    <th>Status</th>
+    <th>Refuser</th>
+    <th>Valider</th>
+  </tr>
+  {% for rendez_vous in rendez %}
+  <tr>
+    <td>{{loop.index}}</td>
+    <td>{{rendez_vous['medecinNom']}} {{rendez_vous['medecinPrenom']}}</td>
+    <td>{{rendez_vous['patientNom']}} {{rendez_vous['patientPrenom']}}</td>
+    <td>{{rendez_vous['date_rdv']}}</td>
+    <td>{{rendez_vous['status']}}</td>
+    <td><a href="refuser?medecin={{rendez_vous['medecinId']}}&date={{rendez_vous['date_rdv']}}"><button class="btn btn-danger"></button></a></td>
+    <td><a href="valider?medecin={{rendez_vous['medecinId']}}&date={{rendez_vous['date_rdv']}}"><button class="btn btn-success"></button></a></td>
+  </tr>
+  {% endfor %}
+</table> 
+
+
+
+{% endblock %}

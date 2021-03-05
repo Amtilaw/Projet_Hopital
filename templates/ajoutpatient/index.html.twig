@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AjoutpatientController!{% endblock %}
+
+{% block body %}
+<link href="css/stylePart.css" rel="stylesheet" type="text/css">
+
+<a href="chambre?numChambre={{numChambre}}&numService={{numService}}"><img src="img/arrow-left-square.svg" style="position:absolute;left:10px"></a>
+
+<div class="connection" style="height:500px">
+<div class="board-connection">
+
+<h2>Ajouter patient chambre : {{numChambre}} </h2>
+
+
+<form method="post" style="margin:60px" action="ajoutpatient?numChambre={{numChambre}}&numService={{numService}}">
+
+  <label for="fname">Prénom:</label><br>
+  <input type="text" id="fname" name="prenom" required><br>
+
+  <label for="lname">Nom:</label><br>
+  <input type="text" id="lname" name="nom" required><br>
+
+  <label for="gsm">Gsm:</label><br>
+  <input type="text" id="lname" name="gsm" required><br>
+
+  <input type="radio" id="homme" name="sex" value="1">
+  <label for="male">Homme</label>
+  <input type="radio" id="femme" name="sex" value="0">
+  <label for="femme">femme</label><br>
+
+   <label for="adress">Adress:</label><br>
+  <input type="text" id="adress" name="adress" required><br>
+
+    <label for="naissance">Date de naissance</label><br>
+  <input type="date" id="date_naissance" name="naissance" required>
+
+  <input type="submit" value="Enregistre">
+  
+</form>
+
+</div>
+</div>
+
+{% endblock %}
+

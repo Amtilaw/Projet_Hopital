@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(55, 143, 143);
+    
+}
+
+.connection {
+    background-color: azure;
+    position: relative;
+    left: 35%;
+    top:100px;
+    width: 25%;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.board-connection {
+    margin: 20px;
+}
